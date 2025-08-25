@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mon Organisme de Formation</title>
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<style>
+/* Styles identiques à la version précédente */
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Arial', sans-serif; background:#f5f7fa; color:#333; }
+a { text-decoration:none; color:inherit; }
+header { background:linear-gradient(90deg,#004aad,#0066cc); color:#fff; text-align:center; padding:60px 20px 40px; }
+header h1 { font-size:2.8rem; margin-bottom:10px; }
+header p { font-size:1.2rem; }
+nav { background-color:#0055aa; display:flex; justify-content:center; flex-wrap:wrap; }
+nav a { padding:15px 25px; color:#fff; transition:background 0.3s; }
+nav a:hover { background-color:#004080; }
+main { max-width:1100px; margin:40px auto; padding:0 20px; }
+section { margin-bottom:60px; opacity:0; transform:translateY(30px); transition:all 0.8s ease-out; }
+section.visible { opacity:1; transform:translateY(0); }
+.carousel-container { position:relative; overflow:hidden; border-radius:12px; margin-bottom:40px; }
+.carousel-track { display:flex; transition:transform 0.5s ease; }
+.carousel-item { min-width:100%; box-shadow:0 5px 15px rgba(0,0,0,0.1); background:#fff; border-radius:12px; padding:25px; margin-right:20px; }
+.carousel-item h3 { color:#004aad; margin-bottom:10px; }
+.carousel-btn { position:absolute; top:50%; transform:translateY(-50%); background:rgba(0,0,0,0.5); color:#fff; border:none; font-size:2rem; padding:10px 15px; cursor:pointer; border-radius:50%; }
+.carousel-btn:hover { background:rgba(0,0,0,0.7); }
+.carousel-btn.prev { left:10px; }
+.carousel-btn.next { right:10px; }
+.btn-cpf { display:inline-block; margin-top:15px; padding:12px 25px; background:#28a745; color:#fff; border-radius:6px; font-weight:bold; transition:background 0.3s; }
+.btn-cpf:hover { background:#218838; }
+.testimonial { background:#fff; padding:20px; border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,0.1); margin-bottom:20px; }
+.testimonial p { font-style:italic; margin-bottom:10px; }
+.testimonial span { font-weight:bold; color:#004aad; }
+form { background:#fff; padding:30px; border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,0.1); }
+form label { display:block; margin-bottom:5px; font-weight:bold; }
+form input, form textarea { width:100%; padding:12px; margin-bottom:20px; border:1px solid #ccc; border-radius:6px; font-size:1rem; }
+form button { padding:12px 25px; background:#004aad; color:#fff; border:none; border-radius:6px; font-weight:bold; cursor:pointer; transition:background 0.3s; }
+form button:hover { background:#0066cc; }
+footer { text-align:center; padding:25px 20px; background:#004aad; color:#fff; }
+@media(max-width:768px){ nav a{padding:12px 15px;} }
+</style>
+</head>
+<body>
+
+<header>
+<h1>Mon Organisme de Formation</h1>
+<p>Formations éligibles au CPF – Certification Qualiopi</p>
+</header>
+
+<nav>
+<a href="#accueil">Accueil</a>
+<a href="#formations">Formations</a>
+<a href="#temoignages">Témoignages</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<main>
+<section id="accueil">
+<h2>Bienvenue</h2>
+<p>Notre organisme propose des formations professionnelles de qualité, finançables via le Compte Personnel de Formation (CPF). Nous accompagnons chaque apprenant dans son parcours pour développer ses compétences et atteindre ses objectifs.</p>
+</section>
+
+<section id="formations">
+<h2>Nos Formations</h2>
+<div class="carousel-container">
+    <button class="carousel-btn prev">&#10094;</button>
+    <div class="carousel-track">
+        <div class="carousel-item">
+            <h3>Formation 1</h3>
+            <p>Description rapide de la formation 1. Durée : 20h. Financement CPF possible.</p>
+            <a class="btn-cpf" href="https://www.moncompteformation.gouv.fr/espace-prive/html/#/formation/12345" target="_blank">S'inscrire via CPF</a>
+        </div>
+        <div class="carousel-item">
+            <h3>Formation 2</h3>
+            <p>Description rapide de la formation 2. Durée : 15h. Financement CPF possible.</p>
+            <a class="btn-cpf" href="https://www.moncompteformation.gouv.fr/espace-prive/html/#/formation/23456" target="_blank">S'inscrire via CPF</a>
+        </div>
+        <div class="carousel-item">
+            <h3>Formation 3</h3>
+            <p>Description rapide de la formation 3. Durée : 25h. Financement CPF possible.</p>
+            <a class="btn-cpf" href="https://www.moncompteformation.gouv.fr/espace-prive/html/#/formation/34567" target="_blank">S'inscrire via CPF</a>
+        </div>
+    </div>
+    <button class="carousel-btn next">&#10095;</button>
+</div>
+</section>
+
+<section id="temoignages">
+<h2>Témoignages d'apprenants</h2>
+<div class="testimonial">
+<p>"Formation très complète et utile pour mon travail !"</p>
+<span>- Marie D.</span>
+</div>
+<div class="testimonial">
+<p>"Accompagnement personnalisé et équipe très professionnelle."</p>
+<span>- Jean P.</span>
+</div>
+<div class="testimonial">
+<p>"Grâce à cette formation, j'ai pu évoluer rapidement dans mon métier."</p>
+<span>- Clara S.</span>
+</div>
+</section>
+
+<section id="contact">
+<h2>Contactez-nous</h2>
+<form id="contactForm">
+<label for="name">Nom :</label>
+<input type="text" id="name" name="name" required>
+<label for="email">Email :</label>
+<input type="email" id="email" name="email" required>
+<label for="message">Message :</label>
+<textarea id="message" name="message" rows="5" required></textarea>
+<button type="submit">Envoyer</button>
+</form>
+</section>
+</main>
+
+<footer>
+<p>&copy; 2025 Mon Organisme de Formation. Tous droits réservés.</p>
+</footer>
+
+<script>
+// EmailJS initialisation
+(function(){ emailjs.init("YOUR_PUBLIC_KEY"); })();
+
+// Animation des sections
+const sections = document.querySelectorAll('section');
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('visible'); } });
+},{threshold:0.1});
+sections.forEach(section => observer.observe(section));
+
+// Formulaire fonctionnel
+const form = document.getElementById('contactForm');
+form.addEventListener('submit', function(e){
+    e.preventDefault();
+    emailjs.sendForm('YOUR_SERVICE_ID','YOUR_TEMPLATE_ID', this)
+    .then(() => { alert("Merci ! Votre message a été envoyé."); form.reset(); })
+    .catch(() => { alert("Erreur lors de l'envoi, veuillez réessayer."); });
+});
+
+// Carrousel
+const track = document.querySelector('.carousel-track');
+const items = Array.from(track.children);
+const nextButton = document.querySelector('.carousel-btn.next');
+const prevButton = document.querySelector('.carousel-btn.prev');
+let index = 0;
+function updateCarousel(){ track.style.transform = 'translateX(-'+ index * 100 +'%)'; }
+nextButton.addEventListener('click', () => { index = (index +1) % items.length; updateCarousel(); });
+prevButton.addEventListener('click', () => { index = (index -1 + items.length) % items.length; updateCarousel(); });
+</script>
+
+</body>
+</html>
